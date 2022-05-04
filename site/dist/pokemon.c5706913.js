@@ -537,9 +537,10 @@ function addPokemonImage(response) {
         <figure>
             <img src="${response.sprites.front_shiny}" alt="${pokeTitleCase}" />
             <figcaption>${pokeTitleCase}</figcaption>
-            <a>Abilities</a>
+            <p>Abilities: ${response.abilities[0].ability.name}</p>
         </figure>
     `;
+    console.log(response.abilities[0].ability.name);
     ul.append(div);
 }
 function addPokemonAbility(response) {
@@ -550,6 +551,7 @@ function addPokemonAbility(response) {
     li.innerHTML = ` 
     <span class="ability-name">${response.abilities[0].name} - </span>
     <span class="ability-short-description">${response.abilities[0].ability}</span>
+    <p>Hello</p>
 `;
     ul.append(li);
 }
@@ -562,15 +564,36 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`).then((r
         );
     });
     addPokemonImage(response1);
-    Promise.all(abilitiesRequests).then((abilities)=>{
-        abilities.forEach((ability)=>{
-            addPokemonAbility(ability);
-        });
+    return Promise.all(abilitiesRequests);
+}).then((response2)=>{
+    response2.map((response)=>{
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span class="ability-name">
+            ${response.name[0].toUpperCase()}${response.name.slice(1)}
+        </span>
+        <span class="ability-short-description">
+            ${response.abilities.ability}
+        </span>
+        `;
+        return li;
+    }).forEach((li)=>{
+        ul.append(li);
     });
-}).catch((error)=>{
-    console.error(error.message);
 });
-exports.default = {};
+/*
+
+Promise.all(abilitiesRequests).then(abilities => {
+console.log("hello fred")
+abilities.forEach(ability => {
+    addPokemonAbility(ability)
+})
+})
+}).catch(error => {
+console.error(error.message)
+})
+
+*/ exports.default = {};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"3HCFa"}],"3HCFa":[function(require,module,exports) {
 exports.interopDefault = function(a) {
