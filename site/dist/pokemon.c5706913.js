@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"dvQKS":[function(require,module,exports) {
+})({"6SvTr":[function(require,module,exports) {
 "use strict";
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -537,20 +537,17 @@ function addPokemonImage(response) {
         <figure>
             <img src="${response.sprites.front_shiny}" alt="${pokeTitleCase}" />
             <figcaption>${pokeTitleCase}</figcaption>
-            <p>Abilities: ${response.abilities[0].ability.name}</p>
+            <p>Abilities:</p>
         </figure>
     `;
-    console.log(response.abilities[0].ability.name);
+    addPokemonAbility(response), console.log(response.abilities[0].ability.name);
     ul.append(div);
 }
 function addPokemonAbility(response) {
-    // const pokeTitleCase = `${response.abilities[0].toUpperCase()}${response.name.slice(1)}`
     const li = document.createElement("li");
-    // const flavor_text = (pokemon.flavor_text_entries)
-    //     .find(flavor_text_entry => flavor_text_entry.language.name === "en")
     li.innerHTML = ` 
-    <span class="ability-name">${response.abilities[0].name} - </span>
-    <span class="ability-short-description">${response.abilities[0].ability}</span>
+    <span class="ability-name">${response.abilities[0].ability.name} - </span>
+    <span class="ability-short-description">${response.abilities[0].ability.url}</span>
     <p>Hello</p>
 `;
     ul.append(li);
@@ -595,7 +592,7 @@ console.error(error.message)
 
 */ exports.default = {};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"3HCFa"}],"3HCFa":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5i2ny"}],"5i2ny":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -625,6 +622,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["dvQKS","bZL5y"], "bZL5y", "parcelRequire80db")
+},{}]},["6SvTr","bZL5y"], "bZL5y", "parcelRequire80db")
 
 //# sourceMappingURL=pokemon.c5706913.js.map

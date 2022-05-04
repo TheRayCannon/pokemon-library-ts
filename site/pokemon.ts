@@ -9,21 +9,19 @@ function addPokemonImage(response: PokemonEntry) {
         <figure>
             <img src="${response.sprites.front_shiny}" alt="${pokeTitleCase}" />
             <figcaption>${pokeTitleCase}</figcaption>
-            <p>Abilities: ${response.abilities[0].ability.name}</p>
+            <p>Abilities:</p>
         </figure>
     `
+    addPokemonAbility(response),
     console.log(response.abilities[0].ability.name)
     ul.append(div)
 }
 
 function addPokemonAbility(response: PokemonEntry) {
-    // const pokeTitleCase = `${response.abilities[0].toUpperCase()}${response.name.slice(1)}`
     const li = document.createElement("li")
-    // const flavor_text = (pokemon.flavor_text_entries)
-    //     .find(flavor_text_entry => flavor_text_entry.language.name === "en")
     li.innerHTML = ` 
-    <span class="ability-name">${response.abilities[0].name} - </span>
-    <span class="ability-short-description">${response.abilities[0].ability}</span>
+    <span class="ability-name">${response.abilities[0].ability.name} - </span>
+    <span class="ability-short-description">${response.abilities[0].ability.url}</span>
     <p>Hello</p>
 `
     ul.append(li)
@@ -34,10 +32,10 @@ function addPokemonAbility(response: PokemonEntry) {
 type PokemonEntry = {
     sprites: { front_shiny: string };
     name: string;
-    abilities: [ability: {
+    abilities: [{ ability: {
         name: string;
-        ability: string;
-    }]
+        url: string;
+            }}] 
 }
 
 fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)

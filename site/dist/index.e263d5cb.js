@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"fg8LP":[function(require,module,exports) {
+})({"tFLrL":[function(require,module,exports) {
 "use strict";
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -567,7 +567,7 @@ fetch(url).then((response)=>response.json()
 });
 exports.default = {};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"3HCFa"}],"3HCFa":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5i2ny"}],"5i2ny":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -597,6 +597,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["fg8LP","6gRYP"], "6gRYP", "parcelRequire80db")
+},{}]},["tFLrL","6gRYP"], "6gRYP", "parcelRequire80db")
 
 //# sourceMappingURL=index.e263d5cb.js.map
