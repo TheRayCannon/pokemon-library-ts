@@ -1,21 +1,67 @@
 const url = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=91"
 const main = document.querySelector<HTMLBodyElement>("main")
 const pokeBox = document.querySelector<HTMLDivElement>(".pokeBox")
-const $app = document.querySelector<HTMLDivElement>("#app")
+const ul = document.querySelector<HTMLUListElement>("ul")
 
-type Pokemon = {
+
+type PokemonData = {
     name: string;
-    sprites: {
-        front_default: string;
-    };
-};
+    imageUrl: string;
+}
 
-fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+type PokemonResponse = {
+
+    data?: {
+        pokemon: PokemonData
+    }
+    results: [{
+        name: string
+        url: string
+    }]
+    errors?: { message: string }[]
+}
+
+fetch(url)
     .then((response) => response.json())
-    .then((pikachu: Pokemon) => {
-        $app.innerHTML = `
-        
-    <img src="${pikachu.sprites.front_default}" alt="${pikachu.name}" />
-    `;
-    });
+    .then((response: PokemonResponse) => {
+        const pokeBall = response.results
+        const httpReq = pokeBall
+            .map(pokemon => pokemon.url)
+            .map(url => {
+                return fetch(url).then(response => response.json())
+            })
+        return Promise.all(httpReq)
+        console.log(response)
+        // Safe
+    }).then(responses => {
+        responses.map(
+            response => {
+                const pokemonList = document.createElement("div")
+                const name = `${response.species.name[0].toUpperCase()}${response.species.name.slice(1)}`;
+                pokemonList.innerHTML = `
+                 <figure>
+                    <img src ="${response.sprites.front_shiny}" alt="${name}" />
+                    <figcaption>
+                        <a href="pokemon.html?pokemon=${response.id}">
+                        ${name}
+                        </a>
+                    </figcaption
+                 </figure>
+                `
+                return pokemonList
+            }
+        ).forEach(pokemonList => {
+            ul.append(pokemonList)
+        })
+    })
+    .catch((error) => {
+        const message = (error instanceof Error)
+            ? error.message
+            : "Unknown error"
+        console.error(message)
+    })
+
+
+
+
 
