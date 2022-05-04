@@ -11,9 +11,11 @@ type Pokemon = {
 };
 
 fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
-.then((response) => response.json())
-.then((pikachu: Pokemon) => {
-    pokeBox.innerHTML = `
+    .then((response) => response.json())
+    .then((pikachu: Pokemon) => {
+        pokeBox.innerHTML = `
+    <p>"Hello!"</p>
     <img src="${pikachu.sprites.front_default}" alt="${pikachu.name}" />
     `;
-});
+    });
+
