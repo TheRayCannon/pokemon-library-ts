@@ -43,7 +43,7 @@ fetch(url)
                  <figure>
                     <img src ="${response.sprites.front_shiny}" alt="${name}" />
                     <figcaption>
-                        <a href="pokemon.html?pokemon=${response.id}">
+                        <a href="pokemon.html?pokemon=${response.name}">
                         ${name}
                         </a>
                     </figcaption
