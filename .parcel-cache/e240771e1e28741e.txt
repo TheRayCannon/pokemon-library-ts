@@ -1,10 +1,10 @@
-287
+289
 50/home/shawncannon/pokemon-library-ts/tsconfig.json1651676414598359900 0
-50/home/shawncannon/pokemon-library-ts/site/index.ts1651680860658359900 0
-52/home/shawncannon/pokemon-library-ts/site/index.html1651680336298359900 0
+50/home/shawncannon/pokemon-library-ts/site/index.ts1651681015628359900 0
+52/home/shawncannon/pokemon-library-ts/site/index.html1651681160898359900 0
 49/home/shawncannon/pokemon-library-ts/site/app.css1651676215828359900 0
 68/home/shawncannon/pokemon-library-ts/site/dist/index.f39a8c05.js.map1651680195648359900 0
-46/home/shawncannon/pokemon-library-ts/site/dist1651680340188359900 1
+46/home/shawncannon/pokemon-library-ts/site/dist1651681223318359900 1
 41/home/shawncannon/pokemon-library-ts/site1651679948358359900 1
 46/home/shawncannon/pokemon-library-ts/README.md1651676215828359900 0
 49/home/shawncannon/pokemon-library-ts/package.json1651676396998359900 0
@@ -109,6 +109,7 @@
 97/home/shawncannon/pokemon-library-ts/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts1651676396508359900 0
 92/home/shawncannon/pokemon-library-ts/node_modules/typescript/lib/lib.webworker.iterable.d.ts1651676396738359900 0
 94/home/shawncannon/pokemon-library-ts/node_modules/typescript/loc/lcl/ESN/TypeScriptDebugEngine1651676396248359900 1
+64/home/shawncannon/pokemon-library-ts/site/dist/index.cd256f5a.js1651681223288359900 0
 86/home/shawncannon/pokemon-library-ts/node_modules/typescript/lib/typescriptServices.js1651676394608359900 0
 80/home/shawncannon/pokemon-library-ts/node_modules/typescript/loc/lcl/PTB/Targets1651676396348359900 1
 98/home/shawncannon/pokemon-library-ts/node_modules/typescript/loc/lcl/FRA/TypeScriptLanguageService1651676395668359900 1
@@ -131,11 +132,12 @@
 98/home/shawncannon/pokemon-library-ts/node_modules/typescript/loc/lcl/CSY/TypeScriptLanguageService1651676395568359900 1
 87/home/shawncannon/pokemon-library-ts/node_modules/typescript/lib/lib.es2018.regexp.d.ts1651676396568359900 0
 80/home/shawncannon/pokemon-library-ts/node_modules/typescript/loc/lcl/ITA/Targets1651676396348359900 1
+68/home/shawncannon/pokemon-library-ts/site/dist/index.cd256f5a.js.map1651681223318359900 0
 73/home/shawncannon/pokemon-library-ts/node_modules/typescript/package.json1651676395508359900 0
 70/home/shawncannon/pokemon-library-ts/node_modules/typescript/README.md1651676396368359900 0
 93/home/shawncannon/pokemon-library-ts/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts1651676396608359900 0
 84/home/shawncannon/pokemon-library-ts/node_modules/typescript/lib/typingsInstaller.js1651676395088359900 0
-57/home/shawncannon/pokemon-library-ts/site/dist/index.html1651680340168359900 0
+57/home/shawncannon/pokemon-library-ts/site/dist/index.html1651681223198359900 0
 113/home/shawncannon/pokemon-library-ts/node_modules/typescript/loc/lcl/PTB/TypeScriptTasks/TypeScript.Tasks.dll.lcl1651676396168359900 0
 86/home/shawncannon/pokemon-library-ts/node_modules/typescript/lib/lib.es2015.proxy.d.ts1651676396498359900 0
 93/home/shawncannon/pokemon-library-ts/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts1651676396538359900 0
