@@ -1,5 +1,6 @@
-const pokeDetail = document.querySelector<HTMLUListElement>(".pokemon")
-const urlInd = new URL(window.location.search)
+const ul = document.querySelector<HTMLUListElement>(".pokemon")
+const queryString = new URLSearchParams(window.location.search)
+
 
 function addPokemonImage(response: PokemonEntry) {
     const div = document.querySelector<HTMLDivElement>(".abilitiesBox")
@@ -29,7 +30,7 @@ function addPokemonAbility(response: PokemonEntry) {
 
 
 type PokemonEntry = {
-    sprites: {front_shiny: string};
+    sprites: { front_shiny: string };
     name: string;
     abilities: [{
         name: string;
@@ -37,45 +38,24 @@ type PokemonEntry = {
     }]
 }
 
-const queryString = new URLSearchParams(window.location.search)
 fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
-.then((response) => response.json())
-.then((response: PokemonEntry) => {
-    console.log("hello")
-    const abilitiesRequests = response.abilities
-        .map(ability => ability.ability)
-               .map(urlInd => {
-                   return fetch(urlInd).then(response => response.json())
-               })
-               addPokemonImage(response)
-               Promise.all(abilitiesRequests).then(abilities => {
-                   abilities.forEach(ability => {
-                       addPokemonAbility(ability)
-                   })
-                })
-        }).catch(error => {
-            console.error(error.message)
+    .then((response) => response.json())
+    .then((response: PokemonEntry) => {
+        console.log("hello")
+        const abilitiesRequests = response.abilities
+            .map(ability => ability.ability)
+            .map(urlInd => {
+                return fetch(urlInd).then(response => response.json())
+            })
+        addPokemonImage(response)
+        Promise.all(abilitiesRequests).then(abilities => {
+            abilities.forEach(ability => {
+                addPokemonAbility(ability)
+            })
         })
+    }).catch(error => {
+        console.error(error.message)
+    })
 
 
-
-    // const queryString = new URLSearchParams(window.location.search)
-    // fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
-    //     .then(response => {
-    //         return response.json()
-    //     }).then(pokemon => {
-    //         const abilitiesRequests = pokemon.abilities
-    //             .map(ability => ability.ability.url)
-    //             .map(url => {
-    //                 return fetch(url).then(response => response.json())
-    //             })
-    //         addPokemonImage(pokemon)
-    //         Promise.all(abilitiesRequests).then(abilities => {
-    //             abilities.forEach(ability => {
-    //                 addPokemonAbility(ability)
-    //                 loading.classList.add("hidden")
-    //             })
-    //         })
-    //     }).catch(error => {
-    //         console.error(error.message)
-    //     })
+export default {}

@@ -52,6 +52,7 @@ fetch(url)
                 return pokemonList
             }
         ).forEach(pokemonList => {
+            console.log("run Forest")
             ul.append(pokemonList)
         })
     })
@@ -66,3 +67,4 @@ fetch(url)
 
 
 
+export default {}
