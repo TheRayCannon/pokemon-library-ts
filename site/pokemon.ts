@@ -9,7 +9,7 @@ function addPokemonImage(response: PokemonEntry) {
         <figure>
             <img src="${response.sprites.front_shiny}" alt="${pokeTitleCase}" />
             <figcaption>${pokeTitleCase}</figcaption>
-            <p>Abilities:</p>
+            <p>Abilities: ${response.abilities[0].ability.name}</p>
         </figure>
     `
     addPokemonAbility(response),
@@ -22,7 +22,6 @@ function addPokemonAbility(response: PokemonEntry) {
     li.innerHTML = ` 
     <span class="ability-name">${response.abilities[0].ability.name} - </span>
     <span class="ability-short-description">${response.abilities[0].ability.url}</span>
-    <p>Hello</p>
 `
     ul.append(li)
 
@@ -41,7 +40,6 @@ type PokemonEntry = {
 fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
     .then((response) => response.json())
     .then((response: PokemonEntry) => {
-        console.log("hello")
         const abilitiesRequests = response.abilities
             .map(ability => ability.ability)
             .map(urlInd => {
