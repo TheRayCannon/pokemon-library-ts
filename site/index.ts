@@ -4,6 +4,7 @@ const pokeBox = document.querySelector<HTMLDivElement>(".pokeBox")
 const ul = document.querySelector<HTMLUListElement>("ul")
 
 
+
 type PokemonData = {
     name: string;
     imageUrl: string;
